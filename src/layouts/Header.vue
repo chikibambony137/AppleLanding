@@ -19,10 +19,10 @@
 
     <div class="flex gap-6 justify-end items-center">
       <button @click="$router.push('/cart')">
-        <img src="../../assets/icons/cart.svg" alt="cart.svg" />
+        <img src="@/assets/icons/cart.svg" alt="cart.svg" />
       </button>
       <button @click="$router.push('/order')">
-        <img src="../../assets/icons/menu.svg" alt="menu.svg" />
+        <img src="@/assets/icons/menu.svg" alt="menu.svg" />
       </button>
     </div>
   </header>
