@@ -3,7 +3,7 @@
     <Banner class="mx-6 rounded-3xl">
       <template #title>Аксессуары для Iphone 13 Pro Max</template>
       <template #img>
-        <img class="" src="@/assets/img/iphone.png" alt="iphone.png"/>
+        <img class="max-h-40 " src="@/assets/img/iphone.png" alt="iphone.png"/>
     </template>
     </Banner>
   </main>
