@@ -7,11 +7,11 @@
     <!-- Контейнер со скроллом -->
     <div
       ref="scrollContainer"
-      class="flex gap-4 overflow-x-auto py-4 scrollbar-hide">
+      class="grid grid-flow-col auto-cols-max gap-4 overflow-x-auto py-4 scrollbar-hide">
       <div
         v-for="card in props.cards"
         :key="card.id"
-        class="grid gap-4 shrink-0 bg-white rounded-3xl shadow px-10 pt-8 pb-4">
+        class="grid justify-center gap-4 shrink-0 bg-white rounded-3xl shadow px-10 pt-8 pb-4">
         <img class="max-h-50" :src="card.img" :alt="card.img">
         <p class="flex justify-center">{{ card.name }}</p>
       </div>

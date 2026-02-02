@@ -15,6 +15,12 @@ export const useCaseTypesStore = defineStore('caseTypes', () => {
         },
         {
             id: 2,
+            name: 'Силиконовые',
+            img: 'caseTypes/Sylicon.png'
+        },
+
+        {
+            id: 3,
             name: 'Пластмассовые',
             img: 'caseTypes/Plastic.png'
         },

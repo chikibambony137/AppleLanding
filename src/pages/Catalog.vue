@@ -7,9 +7,10 @@
       </template>
     </Banner>
 
-    <HorizontalSwapper class="mx-6 mt-9"
-    name="Чехлы"
-    :cards="caseTypesStore.caseTypes"></HorizontalSwapper>
+    <HorizontalSwapper
+      class="mx-6 mt-9"
+      name="Чехлы"
+      :cards="caseTypesStore.caseTypes"></HorizontalSwapper>
   </main>
 </template>
 
