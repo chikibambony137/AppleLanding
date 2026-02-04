@@ -12,7 +12,14 @@
       name="Чехлы"
       :cards="caseTypesStore.caseTypes"></HorizontalSwapper>
 
-    <ProductCard class="mx-6"></ProductCard>
+    <div class="grid gap-5 mt-3">
+      <ProductCard
+        class="mx-6"
+        v-for="product in productStore.productList"
+        :key="product.id"
+        :productInfo="product"
+        @favoriteChange="productStore.favoriteChange"></ProductCard>
+    </div>
   </main>
 </template>
 
@@ -22,8 +29,12 @@ import HorizontalSwapper from "../components/blocks/HorizontalSwapper.vue";
 import ProductCard from "../components/blocks/ProductCard.vue";
 
 import { useCaseTypesStore } from "../stores/useCaseTypesStore";
-
 const caseTypesStore = useCaseTypesStore();
+
+import { useProductStore } from "../stores/useProductStore";
+const productStore = useProductStore();
+
+
 </script>
 
 <style></style>

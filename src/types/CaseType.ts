@@ -1,4 +1,4 @@
-export type cardType = {
+export type caseType = {
     id: number,
     name: string,
     img: string

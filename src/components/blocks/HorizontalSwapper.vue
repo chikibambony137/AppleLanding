@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { cardType } from '../../types/CardType';
+import type { cardType } from '../../types/CaseType';
 
 const props = defineProps({
     name: {

@@ -1,8 +1,9 @@
 import { defineStore } from "pinia";
-import type { cardType } from "../types/CardType";
+import type { caseType } from "../types/CaseType";
+import { ref, type Ref } from "vue";
 
 export const useCaseTypesStore = defineStore('caseTypes', () => {
-    const caseTypes: Array<cardType> = [
+    const caseTypes: Ref<caseType[]> = ref([
         {
             id: 0,
             name: 'Кожаные',
@@ -24,7 +25,7 @@ export const useCaseTypesStore = defineStore('caseTypes', () => {
             name: 'Пластмассовые',
             img: 'caseTypes/Plastic.png'
         },
-    ]
+    ])
 
     return { caseTypes }
 })
