@@ -4,10 +4,11 @@
     <div class="grid grid-cols-2 items-center">
       <div>
         <img
-          class="w-15"
+          class="w-15 select-none"
           v-if="productInfo.manufacturerLogo"
           :src="productInfo.manufacturerLogo"
-          :alt="productInfo.manufacturerLogo" />
+          :alt="productInfo.manufacturerLogo"
+          draggable="false" />
       </div>
 
       <div class="flex justify-end">
@@ -17,8 +18,8 @@
       </div>
     </div>
 
-    <div class="flex justify-center items-center">
-      <img class="max-h-70" :src="productInfo.img" :alt="productInfo.img" />
+    <div class="flex justify-center items-center select-none">
+      <img class="max-h-70" :src="productInfo.img" :alt="productInfo.img" draggable="false"/>
     </div>
 
     <div class="flex justify-between mt-4">
