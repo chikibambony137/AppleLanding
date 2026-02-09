@@ -12,9 +12,10 @@
       name="Чехлы"
       :cards="caseTypesStore.caseTypes"></HorizontalSwapper>
 
-    <HorizontalSlider class="px-6 mt-9" name="Чехлы > Стеклянные" :products="productStore.productList"></HorizontalSlider>
-
-
+    <HorizontalSlider
+      class="px-6 mt-9"
+      name="Чехлы > Стеклянные"
+      :products="productStore.productList"></HorizontalSlider>
   </main>
 </template>
 
@@ -27,6 +28,7 @@ import { useCaseTypesStore } from "../stores/useCaseTypesStore";
 const caseTypesStore = useCaseTypesStore();
 
 import { useProductStore } from "../stores/useProductStore";
+
 const productStore = useProductStore();
 </script>
 

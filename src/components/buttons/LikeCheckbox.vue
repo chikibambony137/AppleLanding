@@ -2,8 +2,8 @@
   <label class="container-non-tailwind">
     <input
       type="checkbox"
-      :checked="props.checked"
-      @change="$emit('checked', $event)" />
+      :checked="checked"
+      @change="$emit('checked')" />
     <div class="checkmark">
       <svg viewBox="0 0 256 256">
         <rect fill="none" height="256" width="256"></rect>
@@ -18,12 +18,14 @@
 </template>
 
 <script lang="ts" setup>
+
 const props = defineProps({
   checked: {
     type: Boolean,
     required: false,
   },
 });
+
 </script>
 
 <style scoped>

@@ -14,7 +14,7 @@
       <div class="flex justify-end">
         <LikeCheckbox
           :checked="productInfo.favorite ? productInfo.favorite : false"
-          @checked="$emit('favoriteChange', productInfo.id)"></LikeCheckbox>
+          @checked="checkFavorite"></LikeCheckbox>
       </div>
     </div>
 
@@ -53,10 +53,17 @@
 <script lang="ts" setup>
 import LikeCheckbox from "../buttons/LikeCheckbox.vue";
 import { type productType } from "../../types/ProductType";
+import { useProductStore } from "../../stores/useProductStore";
 
 const props = defineProps<{
   productInfo: productType;
 }>();
+
+const productStore = useProductStore();
+
+const checkFavorite = () => {
+  productStore.toggleFavoriteCheck(props.productInfo.id)
+}
 </script>
 
 <style></style>
