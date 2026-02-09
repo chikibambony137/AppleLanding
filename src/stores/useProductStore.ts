@@ -21,6 +21,9 @@ export const useProductStore = defineStore("productList", () => {
             price: 3527,
             discount: 17,
 
+            // category: 'Чехлы',
+            // type: 'Стеклянные',
+
             favorite: false,
           },
 

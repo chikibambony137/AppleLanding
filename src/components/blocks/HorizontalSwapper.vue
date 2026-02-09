@@ -2,7 +2,6 @@
   <div class="relative">
     <div class="flex justify-between items-center font-semibold text-gray-500">
       <h2 v-if="props.name">{{ props.name }}</h2>
-      <p>{{ cards.length }} из {{ cards.length }}</p>
     </div>
     <!-- Контейнер со скроллом -->
     <div

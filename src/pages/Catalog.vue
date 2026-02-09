@@ -16,6 +16,21 @@
       class="px-6 mt-9"
       name="Чехлы > Стеклянные"
       :products="productStore.productList"></HorizontalSlider>
+
+      <HorizontalSlider
+      class="px-6 mt-9"
+      name="Чехлы > Пластмассовые"
+      :products="productStore.productList"></HorizontalSlider>
+
+      <HorizontalSlider
+      class="px-6 mt-9"
+      name="Наушники > Проводные"
+      :products="productStore.productList"></HorizontalSlider>
+
+      <HorizontalSlider
+      class="px-6 mt-9"
+      name="Наушники > Беспроводные"
+      :products="productStore.productList"></HorizontalSlider>
   </main>
 </template>
 
