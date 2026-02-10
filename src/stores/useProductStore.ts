@@ -15,7 +15,7 @@ export const useProductStore = defineStore("productList", () => {
         productList.value = [
           {
             id: 1,
-            manufacturerLogo: "/public/manufacturers/manuf1.png",
+            manufacturerLogo: "/manufacturers/manuf1.png",
             img: "/products/ear1.png",
             name: "Apple BYZ S852I",
             price: 3527,
