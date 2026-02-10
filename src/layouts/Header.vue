@@ -1,8 +1,9 @@
 <template>
-  <header class="grid grid-cols-[1fr_120px] px-5 py-3">
+  <header
+    class="grid grid-cols-[1fr_120px] px-5 py-3 container mx-auto max-w-277">
     <div class="flex gap-6">
       <button v-if="$route.meta.title" @click="$router.back()">
-        <img src="../../assets/icons/leftArrow.svg" alt="arrow.svg" />
+        <img src="@/assets/icons/leftArrow.svg" alt="arrow.svg" />
       </button>
       <p
         class="flex font-semibold text-xl items-center"
@@ -18,6 +19,9 @@
     </div>
 
     <div class="flex gap-6 justify-end items-center">
+      <button @click="$router.push('/favorites')">
+        <img src="@/assets/icons/like.svg" alt="like.svg" />
+      </button>
       <button @click="$router.push('/cart')">
         <img src="@/assets/icons/cart.svg" alt="cart.svg" />
       </button>

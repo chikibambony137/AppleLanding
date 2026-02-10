@@ -1,6 +1,7 @@
-import { createMemoryHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 
 import Catalog from "./pages/Catalog.vue";
+import Favorites from "./pages/Favorites.vue";
 
 const routes = [
   {
@@ -23,7 +24,7 @@ const routes = [
   },
   {
     path: "/favorites",
-    component: Catalog,
+    component: Favorites,
     meta: {
       title: "Избранное",
     },
@@ -45,6 +46,6 @@ const routes = [
 ];
 
 export const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
