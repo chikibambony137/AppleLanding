@@ -23,7 +23,8 @@
         <div class="relative">
           <img src="@/assets/icons/like.svg" alt="like.svg" />
           <div
-            class="absolute -top-0.5 -right-1.5 text-[9px] rounded-full w-3 h-3 font-medium bg-[#ffa542] text-white">
+            class="absolute -top-0.5 -right-1.5 text-[9px] rounded-full w-3 h-3 font-medium bg-[#ffa542] text-white"
+            v-if="productStore.favoriteListLentgh > 0">
             {{ productStore.favoriteListLentgh }}
           </div>
         </div>

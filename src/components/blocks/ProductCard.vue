@@ -18,8 +18,14 @@
       </div>
     </div>
 
-    <div class="flex justify-center items-center select-none">
-      <img class="max-h-70" :src="productInfo.img" :alt="productInfo.img" draggable="false"/>
+    <div @click="$router.push('/product/' + productInfo.id)">
+      <div class="flex justify-center items-center select-none">
+        <img
+          class="max-h-70"
+          :src="productInfo.img"
+          :alt="productInfo.img"
+          draggable="false" />
+      </div>
     </div>
 
     <div class="flex justify-between mt-4">
@@ -62,8 +68,8 @@ const props = defineProps<{
 const productStore = useProductStore();
 
 const checkFavorite = () => {
-  productStore.toggleFavoriteCheck(props.productInfo.id)
-}
+  productStore.toggleFavoriteCheck(props.productInfo.id);
+};
 </script>
 
 <style></style>

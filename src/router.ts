@@ -2,11 +2,17 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import Catalog from "./pages/Catalog.vue";
 import Favorites from "./pages/Favorites.vue";
+import ProductPage from "./pages/ProductPage.vue";
 
 const routes = [
   {
     path: "/",
     component: Catalog,
+  },
+  {
+    path: "/product/:id",
+    component: ProductPage,
+    props: true,
   },
   {
     path: "/cart",

@@ -15,8 +15,8 @@ export const useProductStore = defineStore("productList", () => {
         productList.value = [
           {
             id: 1,
-            manufacturerLogo: "manufacturers/manuf1.png",
-            img: "products/ear1.png",
+            manufacturerLogo: "/public/manufacturers/manuf1.png",
+            img: "/products/ear1.png",
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
@@ -29,8 +29,8 @@ export const useProductStore = defineStore("productList", () => {
 
           {
             id: 2,
-            manufacturerLogo: "manufacturers/manuf1.png",
-            img: "products/ear2.png",
+            manufacturerLogo: "/manufacturers/manuf1.png",
+            img: "/products/ear2.png",
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
@@ -40,8 +40,8 @@ export const useProductStore = defineStore("productList", () => {
 
           {
             id: 3,
-            manufacturerLogo: "manufacturers/manuf1.png",
-            img: "products/ear3.png",
+            manufacturerLogo: "/manufacturers/manuf1.png",
+            img: "/products/ear3.png",
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
@@ -51,8 +51,8 @@ export const useProductStore = defineStore("productList", () => {
 
           {
             id: 4,
-            manufacturerLogo: "manufacturers/manuf1.png",
-            img: "products/ear4.png",
+            manufacturerLogo: "/manufacturers/manuf1.png",
+            img: "/products/ear4.png",
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
@@ -62,8 +62,8 @@ export const useProductStore = defineStore("productList", () => {
 
           {
             id: 5,
-            manufacturerLogo: "manufacturers/manuf1.png",
-            img: "products/ear5.png",
+            manufacturerLogo: "/manufacturers/manuf1.png",
+            img: "/products/ear5.png",
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
@@ -73,7 +73,7 @@ export const useProductStore = defineStore("productList", () => {
 
           {
             id: 6,
-            img: "products/ear6.png",
+            img: "/products/ear6.png",
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
@@ -147,11 +147,16 @@ export const useProductStore = defineStore("productList", () => {
     return productList.value.filter(prod => prod.favorite).length;
   });
 
+  const findById = (id: Number) => {
+    return productList.value.filter(prod => prod.id === id)[0];
+  }
+
   return {
     productList,
     getFromLocalStorage,
     updateProductInfo,
     toggleFavoriteCheck,
-    favoriteListLentgh
+    favoriteListLentgh,
+    findById
   };
 });
