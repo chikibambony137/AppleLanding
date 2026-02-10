@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import { type productType } from "../types/ProductType";
-import { ref, type Ref } from "vue";
+import { computed, ref, type Ref } from "vue";
 
 export const useProductStore = defineStore("productList", () => {
   const productList: Ref<productType[]> = ref([]);
@@ -143,10 +143,15 @@ export const useProductStore = defineStore("productList", () => {
     }
   };
 
+  const favoriteListLentgh = computed(() => {
+    return productList.value.filter(prod => prod.favorite).length;
+  });
+
   return {
     productList,
     getFromLocalStorage,
     updateProductInfo,
     toggleFavoriteCheck,
+    favoriteListLentgh
   };
 });

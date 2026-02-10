@@ -20,7 +20,13 @@
 
     <div class="flex gap-6 justify-end items-center">
       <button @click="$router.push('/favorites')">
-        <img src="@/assets/icons/like.svg" alt="like.svg" />
+        <div class="relative">
+          <img src="@/assets/icons/like.svg" alt="like.svg" />
+          <div
+            class="absolute -top-0.5 -right-1.5 text-[9px] rounded-full w-3 h-3 font-medium bg-[#ffa542] text-white">
+            {{ productStore.favoriteListLentgh }}
+          </div>
+        </div>
       </button>
       <button @click="$router.push('/cart')">
         <img src="@/assets/icons/cart.svg" alt="cart.svg" />
@@ -32,6 +38,11 @@
   </header>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useProductStore } from '../stores/useProductStore';
+
+const productStore = useProductStore();
+
+</script>
 
 <style></style>
