@@ -13,7 +13,7 @@
 
       <div class="flex justify-end">
         <LikeCheckbox
-          :checked="productInfo.favorite ? productInfo.favorite : false"
+          :checked="userDataStore.favoritesList.includes(productInfo.id) ? true : false"
           @checked="checkFavorite"></LikeCheckbox>
       </div>
     </div>
@@ -59,16 +59,16 @@
 <script lang="ts" setup>
 import LikeCheckbox from "../buttons/LikeCheckbox.vue";
 import { type productType } from "../../types/ProductType";
-import { useProductStore } from "../../stores/useProductStore";
+import { useUserDataStore } from "../../stores/useUserDataStore";
 
 const props = defineProps<{
   productInfo: productType;
 }>();
 
-const productStore = useProductStore();
+const userDataStore = useUserDataStore();
 
 const checkFavorite = () => {
-  productStore.toggleFavoriteCheck(props.productInfo.id);
+  userDataStore.toggleFavoriteProduct(props.productInfo.id);
 };
 </script>
 

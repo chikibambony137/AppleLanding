@@ -24,8 +24,8 @@
           <img src="@/assets/icons/like.svg" alt="like.svg" />
           <div
             class="absolute -top-0.5 -right-1.5 text-[9px] rounded-full w-3 h-3 font-medium bg-[#ffa542] text-white"
-            v-if="productStore.favoriteListLentgh > 0">
-            {{ productStore.favoriteListLentgh }}
+            v-if="userDataStore.favoriteCount > 0">
+            {{ userDataStore.favoriteCount }}
           </div>
         </div>
       </button>
@@ -40,9 +40,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useProductStore } from '../stores/useProductStore';
+import { useUserDataStore } from '../stores/useUserDataStore';
 
-const productStore = useProductStore();
+const userDataStore = useUserDataStore();
 
 </script>
 

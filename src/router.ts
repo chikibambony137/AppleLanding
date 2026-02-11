@@ -3,6 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Catalog from "./pages/Catalog.vue";
 import Favorites from "./pages/Favorites.vue";
 import ProductPage from "./pages/ProductPage.vue";
+import Cart from "./pages/Cart.vue";
 
 const routes = [
   {
@@ -16,7 +17,7 @@ const routes = [
   },
   {
     path: "/cart",
-    component: Catalog,
+    component: Cart,
     meta: {
       title: "Корзина",
     },

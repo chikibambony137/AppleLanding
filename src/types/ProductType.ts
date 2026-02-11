@@ -4,7 +4,5 @@ export type productType = {
     img: string,
     name: string,
     price: number,
-    discount?: number,
-
-    favorite: boolean
+    discount?: number
 }

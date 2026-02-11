@@ -11,9 +11,14 @@
 <script lang="ts" setup>
 import ProductCard from "../components/blocks/ProductCard.vue";
 import { useProductStore } from "../stores/useProductStore";
+import { useUserDataStore } from "../stores/useUserDataStore";
+
+const userDataStore = useUserDataStore();
+const favoriteListId = userDataStore.favoritesList;
 
 const productStore = useProductStore();
-const favoriteList = productStore.productList.filter((prod) => prod.favorite);
+const favoriteList = productStore.productList.filter((prod) => favoriteListId.includes(prod.id));
+console.log(favoriteList);
 </script>
 
 <style></style>

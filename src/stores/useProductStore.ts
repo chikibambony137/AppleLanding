@@ -1,9 +1,18 @@
 import { defineStore } from "pinia";
 import { type productType } from "../types/ProductType";
-import { computed, ref, type Ref } from "vue";
+import { ref, type Ref } from "vue";
 
 export const useProductStore = defineStore("productList", () => {
   const productList: Ref<productType[]> = ref([]);
+
+  const updateLocalStorage = () => {
+    try {
+      localStorage.setItem("productList", JSON.stringify(productList.value));
+      console.log("localStorage is updated");
+    } catch {
+      console.error("error localStorage");
+    }
+  };
 
   const loadFromLocalStorage = () => {
     try {
@@ -23,8 +32,6 @@ export const useProductStore = defineStore("productList", () => {
 
             // category: 'Чехлы',
             // type: 'Стеклянные',
-
-            favorite: false,
           },
 
           {
@@ -34,8 +41,6 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
-
-            favorite: true,
           },
 
           {
@@ -45,8 +50,6 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
-
-            favorite: false,
           },
 
           {
@@ -56,8 +59,6 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
-
-            favorite: false,
           },
 
           {
@@ -67,8 +68,6 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
-
-            favorite: false,
           },
 
           {
@@ -77,8 +76,6 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
-
-            favorite: false,
           },
         ];
         updateLocalStorage();
@@ -89,15 +86,6 @@ export const useProductStore = defineStore("productList", () => {
   };
 
   loadFromLocalStorage();
-
-  const updateLocalStorage = () => {
-    try {
-      localStorage.setItem("productList", JSON.stringify(productList.value));
-      console.log("localStorage is updated");
-    } catch {
-      console.error("error localStorage");
-    }
-  };
 
   const getFromLocalStorage = () => {
     try {
@@ -126,37 +114,14 @@ export const useProductStore = defineStore("productList", () => {
     } else console.log("product not found " + newProductInfo.id);
   };
 
-  const toggleFavoriteCheck = (productId: number) => {
-    const index = productList.value.findIndex(
-      (prod: productType) => prod.id === productId
-    );
-
-    if (index !== -1) {
-      // Меняем статус в основном массиве
-      productList.value[index]!.favorite = !productList.value[index]!.favorite;
-
-      // Сразу сохраняем весь обновленный массив в localStorage
-      updateLocalStorage();
-      console.log("Favorite toggled for product id: " + productId);
-    } else {
-      console.log("product not found " + productId);
-    }
-  };
-
-  const favoriteListLentgh = computed(() => {
-    return productList.value.filter(prod => prod.favorite).length;
-  });
-
   const findById = (id: Number) => {
-    return productList.value.filter(prod => prod.id === id)[0];
-  }
+    return productList.value.filter((prod) => prod.id === id)[0];
+  };
 
   return {
     productList,
     getFromLocalStorage,
     updateProductInfo,
-    toggleFavoriteCheck,
-    favoriteListLentgh,
-    findById
+    findById,
   };
 });
