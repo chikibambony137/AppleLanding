@@ -13,8 +13,8 @@
 
       <div class="flex justify-end">
         <LikeCheckbox
-          :checked="userDataStore.favoritesList.includes(productInfo.id) ? true : false"
-          @checked="checkFavorite"></LikeCheckbox>
+          :checked="userDataStore.favoritesList.some(item => item.id === productInfo.id) ? true : false"
+          @checked="toggleFavorite"></LikeCheckbox>
       </div>
     </div>
 
@@ -67,8 +67,8 @@ const props = defineProps<{
 
 const userDataStore = useUserDataStore();
 
-const checkFavorite = () => {
-  userDataStore.toggleFavoriteProduct(props.productInfo.id);
+const toggleFavorite = () => {
+  userDataStore.toggleItemInList("favorites", props.productInfo.id)
 };
 </script>
 

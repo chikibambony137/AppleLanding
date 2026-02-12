@@ -14,11 +14,11 @@ import { useProductStore } from "../stores/useProductStore";
 import { useUserDataStore } from "../stores/useUserDataStore";
 
 const userDataStore = useUserDataStore();
-const favoriteListId = userDataStore.favoritesList;
 
 const productStore = useProductStore();
-const favoriteList = productStore.productList.filter((prod) => favoriteListId.includes(prod.id));
-console.log(favoriteList);
+const favoriteList = productStore.productList.filter((prod) =>
+  userDataStore.favoritesList.some((item) => item.id === prod.id)
+);
 </script>
 
 <style></style>

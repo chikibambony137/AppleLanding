@@ -2,44 +2,60 @@ import { defineStore } from "pinia";
 import { computed, ref, type Ref } from "vue";
 
 export const useUserDataStore = defineStore("userData", () => {
-  const favoritesList: Ref<number[]> = ref([]);
-  const cart: Ref<number[]> = ref([]);
+  type listItemType = {
+    id: Number,
+    dateAdded: Number
+  }
+  
+  const favoritesList: Ref<listItemType[]> = ref([]);
+  const cartList: Ref<listItemType[]> = ref([]);
 
-  const updateLocalStorage = () => {
+  const updateLocalStorage = (name: string, value: Ref<listItemType[]>) => {
     try {
-      localStorage.setItem("favorites", JSON.stringify(favoritesList.value));
+      localStorage.setItem(name, JSON.stringify(value.value));
       console.log("localStorage is updated");
     } catch {
       console.error("error localStorage");
     }
   };
 
-  const loadFromLocalStorage = () => {
+  const loadFromLocalStorage = (name: string, value: Ref<listItemType[]>) => {
     try {
-      const favorites = localStorage.getItem("favorites");
-      if (favorites) {
-        favoritesList.value = JSON.parse(favorites);
+      const stored = localStorage.getItem(name);
+      if (stored) {
+        value.value = JSON.parse(stored);
       }
-      else favoritesList.value = [];
-      updateLocalStorage();
+      else value.value = [];
+      updateLocalStorage(name, value);
     } catch {
       console.log("Error");
     }
   };
 
-  loadFromLocalStorage();
+  loadFromLocalStorage("favorites", favoritesList);
+  loadFromLocalStorage("cart", cartList);
 
   const favoriteCount = computed(() => favoritesList.value.length);
+  const cartCount = computed(() => cartList.value.length);
 
-  const toggleFavoriteProduct = (productId: number) => {
+  const lists = {
+    "favorites": favoritesList,
+    "cart": cartList
+  }
+  type listType = "favorites" | "cart";
+
+  const toggleItemInList = (list: listType, productId: number) => {
     try {
-        if (!(favoritesList.value.includes(productId))) {
-            favoritesList.value.push(productId);
-            updateLocalStorage();
+      if (lists[list].value.some(item => item.id === productId))
+        {
+          lists[list].value = lists[list].value.filter(item => item.id !== productId);
+          updateLocalStorage(list, lists[list]);
         }
         else {
-            favoritesList.value = favoritesList.value.filter(id => id !== productId);
-            updateLocalStorage();
+          const newItem = {id: productId, dateAdded: Date.now()}
+          lists[list].value.push(newItem);
+          updateLocalStorage("favorites", favoritesList);
+          return newItem;
         }
     }
     catch(e) {
@@ -47,5 +63,5 @@ export const useUserDataStore = defineStore("userData", () => {
     }
   }
 
-  return { favoritesList, favoriteCount, toggleFavoriteProduct };
+  return { favoritesList, favoriteCount, cartCount, toggleItemInList };
 });
