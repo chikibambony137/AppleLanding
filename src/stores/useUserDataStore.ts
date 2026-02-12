@@ -46,6 +46,7 @@ export const useUserDataStore = defineStore("userData", () => {
 
   const toggleItemInList = (list: listType, productId: number) => {
     try {
+      console.log('object');
       if (lists[list].value.some(item => item.id === productId))
         {
           lists[list].value = lists[list].value.filter(item => item.id !== productId);
@@ -54,7 +55,7 @@ export const useUserDataStore = defineStore("userData", () => {
         else {
           const newItem = {id: productId, dateAdded: Date.now()}
           lists[list].value.push(newItem);
-          updateLocalStorage("favorites", favoritesList);
+          updateLocalStorage(list, lists[list]);
           return newItem;
         }
     }
@@ -63,5 +64,5 @@ export const useUserDataStore = defineStore("userData", () => {
     }
   }
 
-  return { favoritesList, favoriteCount, cartCount, toggleItemInList };
+  return { favoritesList, favoriteCount, cartList, cartCount, toggleItemInList };
 });

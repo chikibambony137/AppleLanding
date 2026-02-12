@@ -29,9 +29,18 @@
           </div>
         </div>
       </button>
+
       <button @click="$router.push('/cart')">
-        <img src="@/assets/icons/cart.svg" alt="cart.svg" />
+        <div class="relative">
+          <img src="@/assets/icons/cart.svg" alt="cart.svg" />
+          <div
+            class="absolute top-1.5 right-0.5 text-[9px] rounded-full w-3 h-3 font-medium bg-[#ffa542] text-white"
+            v-if="userDataStore.cartCount > 0">
+            {{ userDataStore.cartCount }}
+          </div>
+        </div>
       </button>
+
       <button @click="$router.push('/order')">
         <img src="@/assets/icons/menu.svg" alt="menu.svg" />
       </button>
@@ -40,10 +49,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useUserDataStore } from '../stores/useUserDataStore';
+import { useUserDataStore } from "../stores/useUserDataStore";
 
 const userDataStore = useUserDataStore();
-
 </script>
 
 <style></style>
