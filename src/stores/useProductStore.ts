@@ -30,8 +30,8 @@ export const useProductStore = defineStore("productList", () => {
             price: 3527,
             discount: 17,
 
-            // category: 'Чехлы',
-            // type: 'Стеклянные',
+            type: 'Наушники',
+            subtype: 'Проводные',
           },
 
           {
@@ -41,6 +41,9 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
+
+            type: 'Наушники',
+            subtype: 'Бепроводные',
           },
 
           {
@@ -50,6 +53,9 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
+
+            type: 'Наушники',
+            subtype: 'Беспроводные',
           },
 
           {
@@ -59,6 +65,9 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
+
+            type: 'Наушники',
+            subtype: 'Проводные',
           },
 
           {
@@ -68,6 +77,9 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
+
+            type: 'Наушники',
+            subtype: 'Проводные',
           },
 
           {
@@ -76,6 +88,9 @@ export const useProductStore = defineStore("productList", () => {
             name: "Apple BYZ S852I",
             price: 3527,
             discount: 17,
+
+            type: 'Наушники',
+            subtype: 'Беспроводные/проводные',
           },
         ];
         updateLocalStorage();

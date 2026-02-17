@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div @click="$router.push('/product/' + productInfo.id)">
+    <div @click="goToProductPage">
       <div class="flex justify-center items-center select-none">
         <img
           class="max-h-70"
@@ -60,9 +60,12 @@
 import LikeCheckbox from "../buttons/LikeCheckbox.vue";
 import { type productType } from "../../types/ProductType";
 import { useUserDataStore } from "../../stores/useUserDataStore";
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const props = defineProps<{
   productInfo: productType;
+  clickable?: Boolean;
 }>();
 
 const userDataStore = useUserDataStore();
@@ -70,6 +73,10 @@ const userDataStore = useUserDataStore();
 const toggleFavorite = () => {
   userDataStore.toggleItemInList("favorites", props.productInfo.id)
 };
+
+const goToProductPage = () => {
+  if(props.clickable !== false) router.push('/product/' + props.productInfo.id)
+}
 </script>
 
 <style></style>

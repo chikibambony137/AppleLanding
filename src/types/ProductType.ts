@@ -5,4 +5,7 @@ export type productType = {
     name: string,
     price: number,
     discount?: number
+    
+    type: string,
+    subtype: string
 }

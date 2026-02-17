@@ -11,6 +11,7 @@
       <ProductCard
         class="w-[85vw] absolute -left-40 opacity-60 scale-90 cursor-pointer"
         :productInfo="products[currentIndex != 0 ? currentIndex - 1 : products.length - 1]!"
+        :clickable="false"
         @click="
           currentIndex != 0
             ? currentIndex--
@@ -26,6 +27,7 @@
       <ProductCard
         class="w-[85vw] absolute left-[calc(100%-120px)] opacity-60 scale-90 cursor-pointer"
         :productInfo="products[currentIndex < products.length - 1 ? currentIndex + 1 : 0]!"
+        :clickable="false"
         @click="
           currentIndex < products.length - 1
             ? currentIndex++
