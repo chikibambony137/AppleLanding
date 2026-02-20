@@ -133,10 +133,13 @@ export const useProductStore = defineStore("productList", () => {
     return productList.value.filter((prod) => prod.id === id)[0];
   };
 
+  const deliveryPrice = 499;
+
   return {
     productList,
     getFromLocalStorage,
     updateProductInfo,
     findById,
+    deliveryPrice,
   };
 });
