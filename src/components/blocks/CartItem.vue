@@ -20,13 +20,13 @@
       <div class="flex gap-4">
         <div
           class="flex justify-center items-center w-8 h-8 rounded-full bg-orange-300 text-white text-2xl font-semibold"
-          @click="quantity--">
+          @click="userDataStore.changeCartQuantity(productInfo.id, -1)">
           −
         </div>
         <div class="flex items-center"><p class="font-semibold">{{ quantity }}</p></div>
         <div
           class="flex justify-center items-center w-8 h-8 rounded-full bg-orange-300 text-white text-2xl font-semibold"
-          @click="quantity++">
+          @click="userDataStore.changeCartQuantity(productInfo.id, 1)">
           +
         </div>
       </div>
@@ -42,6 +42,10 @@
 import { type productType } from "../../types/ProductType";
 import { useRouter } from "vue-router";
 
+import { useUserDataStore } from "../../stores/useUserDataStore";
+import { computed, watch } from "vue";
+const userDataStore = useUserDataStore();
+
 const router = useRouter();
 const props = defineProps<{
   productInfo: productType;
@@ -53,14 +57,14 @@ const goToProductPage = () => {
     router.push("/product/" + props.productInfo.id);
 };
 
-const quantity = ref(1);
+const quantity = computed(() => {
+    return userDataStore.cartList.filter((prod) => prod.id === props.productInfo.id)[0]!.quantity 
+})
 watch(quantity, () => {
     if (quantity.value < 1) userDataStore.toggleItemInList('cart', props.productInfo.id);
 })
 
-import { useUserDataStore } from "../../stores/useUserDataStore";
-import { ref, watch } from "vue";
-const userDataStore = useUserDataStore();
+
 </script>
 
 <style></style>

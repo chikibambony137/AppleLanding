@@ -3,10 +3,11 @@ import { computed, ref, type Ref } from "vue";
 
 export const useUserDataStore = defineStore("userData", () => {
   type listItemType = {
-    id: Number,
-    dateAdded: Number
-  }
-  
+    id: Number;
+    dateAdded: Number;
+    quantity: number;
+  };
+
   const favoritesList: Ref<listItemType[]> = ref([]);
   const cartList: Ref<listItemType[]> = ref([]);
 
@@ -24,8 +25,7 @@ export const useUserDataStore = defineStore("userData", () => {
       const stored = localStorage.getItem(name);
       if (stored) {
         value.value = JSON.parse(stored);
-      }
-      else value.value = [];
+      } else value.value = [];
       updateLocalStorage(name, value);
     } catch {
       console.log("Error");
@@ -39,30 +39,47 @@ export const useUserDataStore = defineStore("userData", () => {
   const cartCount = computed(() => cartList.value.length);
 
   const lists = {
-    "favorites": favoritesList,
-    "cart": cartList
-  }
+    favorites: favoritesList,
+    cart: cartList,
+  };
   type listType = "favorites" | "cart";
 
   const toggleItemInList = (list: listType, productId: number) => {
     try {
-      console.log('object');
-      if (lists[list].value.some(item => item.id === productId))
-        {
-          lists[list].value = lists[list].value.filter(item => item.id !== productId);
-          updateLocalStorage(list, lists[list]);
-        }
-        else {
-          const newItem = {id: productId, dateAdded: Date.now()}
-          lists[list].value.push(newItem);
-          updateLocalStorage(list, lists[list]);
-          return newItem;
-        }
+      if (lists[list].value.some((item) => item.id === productId)) {
+        lists[list].value = lists[list].value.filter(
+          (item) => item.id !== productId
+        );
+        updateLocalStorage(list, lists[list]);
+      } else {
+        const newItem = { id: productId, dateAdded: Date.now(), quantity: 1 };
+        lists[list].value.push(newItem);
+        updateLocalStorage(list, lists[list]);
+        return newItem;
+      }
+    } catch (e) {
+      console.log("Error " + e);
     }
-    catch(e) {
-        console.log("Error " + e);
-    }
-  }
+  };
 
-  return { favoritesList, favoriteCount, cartList, cartCount, toggleItemInList };
+  const changeCartQuantity = (productId: number, value: number) => {
+    try {
+      const product = cartList.value.filter((item) => item.id === productId)[0];
+      if (product) {
+        product.quantity += value;
+        updateLocalStorage("cart", cartList);
+      }
+    } catch (e) {
+      console.log("Error " + e);
+    }
+  };
+
+  return {
+    favoritesList,
+    favoriteCount,
+    cartList,
+    cartCount,
+    toggleItemInList,
+    changeCartQuantity,
+  };
 });

@@ -57,6 +57,13 @@
         </DropDown>
       </div>
     </div>
+
+    <div class="grid max-h-content bg-white rounded-3xl shadow gap-2">
+      <div class="flex justify-between gap-2">
+        <p>ИТОГО</p>
+        <p>ИТОГО</p>
+      </div>
+    </div>
   </div>
 </template>
 
