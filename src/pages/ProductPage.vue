@@ -35,7 +35,7 @@
       </div>
     </DropDown>
 
-    <DropDown class="mt-6" title="Отзывы">
+    <DropDown class="mt-6 font-semibold" title="Отзывы">
       <p>ОЧЕНЬ КРУТА</p>
       <p>ОЧЕНЬ КРУТА</p>
       <p>ОЧЕНЬ КРУТА</p>

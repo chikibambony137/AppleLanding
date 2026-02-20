@@ -1,10 +1,13 @@
 <template>
   <div class="bg-gray-100 rounded-2xl transition-all duration-1000">
     <div
-      class="bg-white rounded-2xl py-5 px-6 text-black text-lg font-semibold"
+      class="bg-white rounded-2xl py-5 px-4 text-black"
       @click="isDescriptionVisible = !isDescriptionVisible">
       <div class="flex gap-x-2 justify-between">
-        <p>{{ title }}</p>
+        <div class="flex gap-3 items-center">
+          <slot name="icon"></slot>
+          <p>{{ title }}</p>
+        </div>
         <img
           :class="{
             ' rotate-180 transition-all duration-500': isDescriptionVisible,
