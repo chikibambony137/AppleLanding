@@ -10,26 +10,29 @@
   </div>
 
   <div
-    class="grid gap-4 justify-center px-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 container mx-auto max-w-277"
+    class="grid gap-4 px-4  container mx-auto max-w-277"
     v-else>
-    <ProductCard
+    <CartItem
       :productInfo="prod"
       v-for="prod in cartList"
-      :key="prod.id"></ProductCard>
+      :key="prod.id"></CartItem>
   </div>
 </template>
 
 <script lang="ts" setup>
-import ProductCard from '../components/blocks/ProductCard.vue';
+import CartItem from '../components/blocks/CartItem.vue';
 import { useProductStore } from '../stores/useProductStore';
 import { useUserDataStore } from '../stores/useUserDataStore';
+import { computed } from 'vue';
 
 const productStore = useProductStore();
 const userDataStore = useUserDataStore();
 
-const cartList = productStore.productList.filter((prod) =>
-  userDataStore.cartList.some((item) => item.id === prod.id)
-);
+const cartList = computed(() => {
+  return productStore.productList.filter((prod) =>
+    userDataStore.cartList.some((item) => item.id === prod.id)
+  );
+});
 </script>
 
 <style>
