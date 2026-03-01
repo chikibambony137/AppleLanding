@@ -32,7 +32,7 @@
             :key="prod.id"></CartItem>
         </div>
 
-        <div class="grid gap-4">
+        <div class="grid gap-4 h-min">
           <div
             class="grid py-4 px-4 pb-3 max-h-content bg-white rounded-2xl shadow gap-4">
             <div class="flex justify-between gap-2">

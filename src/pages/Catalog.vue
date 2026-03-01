@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto max-w-277">
+  <main class="w-full overflow-x-hidden container mx-auto max-w-277">
     <Banner class="mx-6 rounded-3xl">
       <template #title>Аксессуары для Iphone 13 Pro Max</template>
       <template #img>

@@ -19,13 +19,15 @@
 
       <div class="flex gap-4">
         <div
-          class="flex justify-center items-center w-8 h-8 rounded-full bg-orange-300 text-white text-2xl font-semibold"
+          class="flex justify-center items-center w-8 h-8 rounded-full bg-orange-300 text-white 
+            text-2xl font-semibold hover:cursor-pointer select-none"
           @click="userDataStore.changeCartQuantity(productInfo.id, -1)">
           −
         </div>
         <div class="flex items-center"><p class="font-semibold">{{ quantity }}</p></div>
         <div
-          class="flex justify-center items-center w-8 h-8 rounded-full bg-orange-300 text-white text-2xl font-semibold"
+          class="flex justify-center items-center w-8 h-8 rounded-full bg-orange-300 text-white 
+          text-2xl font-semibold hover:cursor-pointer select-none"
           @click="userDataStore.changeCartQuantity(productInfo.id, 1)">
           +
         </div>

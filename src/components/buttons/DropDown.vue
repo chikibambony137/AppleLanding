@@ -1,10 +1,10 @@
 <template>
   <div class="bg-gray-100 rounded-2xl transition-all duration-1000">
     <div
-      class="bg-white rounded-2xl py-5 px-4 text-black"
+      class="bg-white rounded-2xl py-5 px-4 text-black hover:cursor-pointer"
       @click="isDescriptionVisible = !isDescriptionVisible">
       <div class="flex gap-x-2 justify-between">
-        <div class="flex gap-3 items-center">
+        <div class="flex gap-3 items-center font-semibold">
           <slot name="icon"></slot>
           <p>{{ title }}</p>
         </div>

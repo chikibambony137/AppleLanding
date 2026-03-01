@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid pt-6 px-6 pb-3 max-w-100 max-h-content bg-white rounded-3xl shadow">
+    class="grid pt-6 px-6 pb-3 max-w-100 max-h-content bg-white rounded-3xl shadow hover:cursor-pointer" >
     <div class="grid grid-cols-2 items-center">
       <div>
         <img

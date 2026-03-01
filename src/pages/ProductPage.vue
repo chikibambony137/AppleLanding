@@ -58,7 +58,7 @@
       <button class="flex justify-center items-center bg-black p-4 rounded-2xl">
         <p class="font-semibold text-white">Купить сейчас!</p>
       </button>
-        
+
       <button
         class="flex justify-center items-center bg-green-400 p-4 rounded-2xl">
         <img src="@/assets/icons/whatsapp.png" alt="whatsapp" />

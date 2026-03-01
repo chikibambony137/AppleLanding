@@ -2,7 +2,7 @@
   <header
     class="grid grid-cols-[1fr_120px] px-5 py-3 container mx-auto max-w-277">
     <div class="flex gap-6">
-      <button v-if="$route.meta.title" @click="$router.back()">
+      <button class=" hover:cursor-pointer" v-if="$route.meta.title" @click="$router.back()">
         <img src="@/assets/icons/leftArrow.svg" alt="arrow.svg" />
       </button>
       <p
@@ -19,7 +19,7 @@
     </div>
 
     <div class="flex gap-6 justify-end items-center">
-      <button @click="$router.push('/favorites')">
+      <button class="hover:cursor-pointer" @click="$router.push('/favorites')">
         <div class="relative">
           <img src="@/assets/icons/like.svg" alt="like.svg" />
           <div
@@ -30,7 +30,7 @@
         </div>
       </button>
 
-      <button @click="$router.push('/cart')">
+      <button class="hover:cursor-pointer" @click="$router.push('/cart')">
         <div class="relative">
           <img src="@/assets/icons/cart.svg" alt="cart.svg" />
           <div
