@@ -3,7 +3,7 @@
     class="container mx-auto max-w-277 px-4 mb-4 h-[calc(93dvh-2rem)] flex flex-col">
     <div class="grid overflow-y-auto mb-4 gap-y-4">
       <div
-        class="grid justify-center items-center h-[90dvh]"
+        class="grid justify-center items-center gap-y-20"
         v-if="cartList.length === 0">
         <div class="flex flex-col gap-4 justify-center items-center">
           <img
@@ -15,9 +15,7 @@
             <p class="text-gray-400">Но это никогда не поздно исправить :)</p>
           </div>
         </div>
-      </div>
 
-      <div class="grid" v-if="cartList.length === 0">
         <button
           class="bg-black text-white font-semibold rounded-2xl py-4 max-w-90 w-[75%] min-w-50 mx-auto"
           @click="$router.push('/')">

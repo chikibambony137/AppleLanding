@@ -135,6 +135,7 @@ const promocodeActivate = () => {
 const router = useRouter();
 const placeOrder = () => {
     alert(`Заказ №${Date.now()} на сумму ${userDataStore.finalPrice} успешно оформлен!`);
+    userDataStore.clearList('cart');
     router.push('/');
 }
 </script>

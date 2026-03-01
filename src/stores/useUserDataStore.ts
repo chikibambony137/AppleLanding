@@ -86,6 +86,16 @@ export const useUserDataStore = defineStore("userData", () => {
     return res + productStore.deliveryPrice;
   });
 
+  const clearList = (list: listType) => {
+    try {
+      localStorage.setItem(list, '');
+      console.log("localStorage is cleared");
+      lists[list].value = [];
+    } catch {
+      console.error("error localStorage");
+    }
+  }
+
   return {
     favoritesList,
     favoriteCount,
@@ -93,6 +103,7 @@ export const useUserDataStore = defineStore("userData", () => {
     cartCount,
     toggleItemInList,
     changeCartQuantity,
-    finalPrice
+    finalPrice,
+    clearList
   };
 });
