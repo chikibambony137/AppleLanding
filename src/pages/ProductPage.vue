@@ -47,13 +47,18 @@
 
     <div class="grid grid-cols-[64px_1fr_64px] gap-4 mt-10">
       <button
-        class="flex justify-center items-center bg-black p-4 rounded-2xl"
+        class="flex justify-center items-center p-4 rounded-2xl bg-black"
+        :class="{'bg-white': userDataStore.cartList.some((item) => item.id === productInfo?.id)}"
         @click="toggleCart">
-        <img src="@/assets/icons/cart_white.svg" alt="cart_white" />
+        <img class="size-6" v-if="userDataStore.cartList.some((item) => item.id === productInfo?.id)" 
+        src="@/assets/icons/ok.png" alt="ok" />
+        <img v-else src="@/assets/icons/cart_white.svg" alt="cart">
       </button>
+
       <button class="flex justify-center items-center bg-black p-4 rounded-2xl">
         <p class="font-semibold text-white">Купить сейчас!</p>
       </button>
+        
       <button
         class="flex justify-center items-center bg-green-400 p-4 rounded-2xl">
         <img src="@/assets/icons/whatsapp.png" alt="whatsapp" />

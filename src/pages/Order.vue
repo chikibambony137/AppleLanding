@@ -41,7 +41,7 @@
       <div class="grid gap-y-4 h-min">
         <div class="grid gap-y-4 h-min bg-white rounded-3xl shadow p-4">
           <h2 class="text-xl font-semibold">Ваш заказ</h2>
-          <div class="grid grid-cols-[25px_1fr_60px] gap-x-2 font-medium">
+          <div class="grid grid-cols-[25px_1fr_70px] gap-x-2 font-medium">
             <template v-for="prod in userDataStore.cartList">
               <p>{{ prod.quantity }}x</p>
               <p>

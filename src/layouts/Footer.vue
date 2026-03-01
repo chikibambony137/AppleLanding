@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-277">
+  <div class="container mx-auto max-w-277 px-5 box-border">
       <div class="grid grid-cols-4 bg-white rounded-t-3xl shadow p-7">
         <a class="flex font-bold text-2xl items-center" href="/">QPICK</a>
     
