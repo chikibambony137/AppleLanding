@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { computed, ref, type Ref } from "vue";
+import { useProductStore } from "./useProductStore";
 
 export const useUserDataStore = defineStore("userData", () => {
   type listItemType = {
@@ -74,6 +75,17 @@ export const useUserDataStore = defineStore("userData", () => {
     }
   };
 
+  const finalPrice = computed(() => {
+    const productStore = useProductStore();
+    let res = 0;
+    cartList.value.forEach((cartItem) => {
+      const product = productStore.findById(cartItem.id)
+      res += product!.price * cartItem.quantity;
+    });
+  
+    return res + productStore.deliveryPrice;
+  });
+
   return {
     favoritesList,
     favoriteCount,
@@ -81,5 +93,6 @@ export const useUserDataStore = defineStore("userData", () => {
     cartCount,
     toggleItemInList,
     changeCartQuantity,
+    finalPrice
   };
 });

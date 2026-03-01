@@ -74,7 +74,7 @@
           <div class="grid max-h-content bg-white rounded-2xl shadow gap-2 pt-4">
             <div class="flex justify-between gap-2 px-6 font-semibold">
               <p>ИТОГО</p>
-              <p>{{ finalPrice }} ₽</p>
+              <p>{{ userDataStore.finalPrice }} ₽</p>
             </div>
   
             <button
@@ -104,18 +104,6 @@ const cartList = computed(() => {
   return productStore.productList.filter((prod) =>
     userDataStore.cartList.some((item) => item.id === prod.id)
   );
-});
-
-const finalPrice = computed(() => {
-  let res = 0;
-  userDataStore.cartList.forEach((cartItem) => {
-    const product = productStore.productList.filter(
-      (prod) => prod.id === cartItem.id
-    )[0];
-    res += product!.price * cartItem.quantity;
-  });
-
-  return res + productStore.deliveryPrice;
 });
 </script>
 
