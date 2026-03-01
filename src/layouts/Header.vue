@@ -40,10 +40,6 @@
           </div>
         </div>
       </button>
-
-      <button @click="$router.push('/order')">
-        <img src="@/assets/icons/menu.svg" alt="menu.svg" />
-      </button>
     </div>
   </header>
 </template>

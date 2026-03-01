@@ -1,6 +1,6 @@
 <template>
   <div
-    class="container mx-auto max-w-277 px-4 mb-4 h-[calc(93dvh-2rem)] flex flex-col">
+    class="container mx-auto max-w-277 px-4 mb-4 flex flex-col">
     <div class="grid overflow-y-auto mb-4 gap-y-4">
       <div
         class="grid justify-center items-center gap-y-20"

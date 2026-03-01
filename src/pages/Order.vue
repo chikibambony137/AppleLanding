@@ -41,7 +41,7 @@
       <div class="grid gap-y-4 h-min">
         <div class="grid gap-y-4 h-min bg-white rounded-3xl shadow p-4">
           <h2 class="text-xl font-semibold">Ваш заказ</h2>
-          <div class="grid grid-cols-[40px_1fr_70px] font-medium">
+          <div class="grid grid-cols-[25px_1fr_60px] gap-x-2 font-medium">
             <template v-for="prod in userDataStore.cartList">
               <p>{{ prod.quantity }}x</p>
               <p>
@@ -91,12 +91,12 @@
             </template>
           </DropDown>
 
-          <div class="flex gap-4 items-center justify-between px-4 py-2">
+          <div class="grid grid-cols-[20px_3fr_1fr] gap-4 items-center justify-between px-4 py-2">
             <img
               class="size-5"
               src="@/assets/icons/promocode.svg"
               alt="promocode" />
-            <input class="grow" v-model="promocodeInput" type="text" placeholder="Промокод" />
+            <input class="grow min-w-10" v-model="promocodeInput" type="text" placeholder="Промокод" />
             <button
               class="bg-gray-200 p-2 rounded-2xl hover:bg-gray-300 active:bg-gray-200 cursor-pointer"
               @click="promocodeActivate">
